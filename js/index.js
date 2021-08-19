@@ -89,7 +89,6 @@ function onKeyPress(event) {
  
   const indexImage = el.getAttribute('index');
   let currentIndex = Number(indexImage) + 1;
-  let nextIndex = currentIndex;
   
   if (event.code === 'ArrowRight') {
     items.forEach((el, index, arr) => {
@@ -99,7 +98,7 @@ function onKeyPress(event) {
     });
 
     currentIndex = currentIndex === items.length - 1 ? currentIndex = -1 : currentIndex;
-    nextIndex = currentIndex + 1;
+    url = items[currentIndex + 1].dataset.source;
    
   }
 
@@ -112,9 +111,9 @@ function onKeyPress(event) {
         currentIndex = index;
       }
     });
-    nextIndex = currentIndex - 1;
+    url = items[currentIndex - 1].dataset.source;
   }
 
-  imageLightBox.setAttribute('src', items[nextIndex].dataset.source);
+  imageLightBox.setAttribute('src', url);
 }
 
